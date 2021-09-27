@@ -1,0 +1,22 @@
+{
+  "kind": "singleType",
+  "collectionName": "filteroptions",
+  "info": {
+    "name": "filteroptions",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

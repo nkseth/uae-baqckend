@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "companies",
+  "info": {
+    "name": "companies",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "CompanyName": {
+      "type": "string"
+    },
+    "subscriptiontype": {
+      "type": "string"
+    },
+    "domainName": {
+      "type": "string"
+    },
+    "CompanyEmail": {
+      "type": "email"
+    },
+    "setupDate": {
+      "type": "date"
+    },
+    "status": {
+      "type": "boolean"
+    },
+    "companyURL": {
+      "type": "string"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "companies"
+    }
+  }
+}

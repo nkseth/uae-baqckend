@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "filters",
+  "info": {
+    "name": "filter"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}
