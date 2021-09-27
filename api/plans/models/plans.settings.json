@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "plans",
+  "info": {
+    "name": "plans"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "cover": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "title": {
+      "type": "string"
+    },
+    "info": {
+      "type": "richtext"
+    },
+    "buttontype": {
+      "type": "string"
+    },
+    "currency": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "subscriptionplans",
+        "addons",
+        "otheraddons"
+      ]
+    }
+  }
+}
