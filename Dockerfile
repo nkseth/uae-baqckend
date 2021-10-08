@@ -4,7 +4,7 @@ WORKDIR /srv/app
 COPY package*.json .
 RUN yarn install
 
-COPY . .
+COPY . ./
 
 RUN yarn build
 EXPOSE 1337
