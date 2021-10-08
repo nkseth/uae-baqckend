@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "usercarts",
+  "info": {
+    "name": "usercart",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "via": "usercart",
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "plans": {
+      "collection": "plans"
+    },
+    "addons": {
+      "collection": "addons"
+    }
+  }
+}

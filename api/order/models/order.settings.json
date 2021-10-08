@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "name": "order",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "plan": {
+      "model": "plans"
+    },
+    "addons": {
+      "collection": "addons"
+    },
+    "company": {
+      "model": "companies"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}

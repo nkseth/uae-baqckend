@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "activeadons",
+  "info": {
+    "name": "activeadons",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "addon": {
+      "model": "addons"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "startdate": {
+      "type": "date"
+    },
+    "enddate": {
+      "type": "date"
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    },
+    "company": {
+      "model": "companies"
+    }
+  }
+}

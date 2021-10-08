@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/activeadons",
+      "handler": "activeadons.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/activeadons/count",
+      "handler": "activeadons.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/activeadons/:id",
+      "handler": "activeadons.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/activeadons",
+      "handler": "activeadons.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/activeadons/:id",
+      "handler": "activeadons.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/activeadons/:id",
+      "handler": "activeadons.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/automatic-order-approval",
+      "handler": "automatic-order-approval.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/automatic-order-approval",
+      "handler": "automatic-order-approval.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/automatic-order-approval",
+      "handler": "automatic-order-approval.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

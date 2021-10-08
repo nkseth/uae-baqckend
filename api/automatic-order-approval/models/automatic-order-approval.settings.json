@@ -1,0 +1,18 @@
+{
+  "kind": "singleType",
+  "collectionName": "automatic_order_approvals",
+  "info": {
+    "name": "Automatic Order Approval"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "AutoApprove": {
+      "type": "boolean"
+    }
+  }
+}

@@ -15,9 +15,6 @@
     "CompanyName": {
       "type": "string"
     },
-    "subscriptiontype": {
-      "type": "string"
-    },
     "domainName": {
       "type": "string"
     },
@@ -34,9 +31,13 @@
       "type": "string"
     },
     "user": {
+      "via": "companies",
       "plugin": "users-permissions",
-      "model": "user",
-      "via": "companies"
+      "model": "user"
+    },
+    "activeplan": {
+      "via": "company",
+      "model": "activeplans"
     }
   }
 }

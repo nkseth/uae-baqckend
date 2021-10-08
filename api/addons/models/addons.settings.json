@@ -1,8 +1,8 @@
 {
   "kind": "collectionType",
-  "collectionName": "plans",
+  "collectionName": "addons",
   "info": {
-    "name": "plans",
+    "name": "addons",
     "description": ""
   },
   "options": {
@@ -31,19 +31,16 @@
       "type": "string"
     },
     "currency": {
-      "type": "string",
-      "default": "ADE"
+      "type": "string"
     },
     "price": {
-      "type": "decimal"
+      "type": "integer"
     },
     "category": {
       "type": "enumeration",
       "enum": [
-        "subscription0plans",
-        "addons",
-        "other0addons",
-        "ggei"
+        "addon1",
+        "addon2"
       ]
     },
     "filteroption": {
@@ -68,11 +65,11 @@
         "subscription",
         "addon"
       ],
-      "default": "subscription"
+      "default": "addon"
     },
     "headercolor": {
       "type": "string",
-      "default": "#d4afff"
+      "default": "#d1d7ff"
     }
   }
 }

@@ -62,6 +62,19 @@
     "companies": {
       "via": "user",
       "collection": "companies"
+    },
+    "usercart": {
+      "via": "user",
+      "model": "usercart"
+    },
+    "nickname": {
+      "type": "string"
+    },
+    "firstname": {
+      "type": "string"
+    },
+    "lastname": {
+      "type": "string"
     }
   }
 }

@@ -20,54 +20,58 @@ module.exports = {
      * @param {*} ctx 
      */
     async find(ctx) {
+        
         const { user } = ctx.state
         let entities;
+        const companyentity= await strapi.services.companies.find({user:user.id})
+
+        console.log(newentity)
         if (ctx.query._q) {
-            entities = await strapi.services.companies.search({...ctx.query, user: user.id});
+            entities = await strapi.services.activeadons.search({...ctx.query, user: user.id});
         } else {
-            entities = await strapi.services.companies.find({...ctx.query, user: user.id});
+            entities = await strapi.services.activeadons.find({...ctx.query, user: user.id});
         }
 
-        return entities.map(entity => sanitizeEntity(entity, { model: strapi.models.companies }));
+        return entities.map(entity => sanitizeEntity(entity, { model: strapi.models.activeadons }));
     },
 
     async findOne(ctx) {
         const {id}=ctx.params
+       
         const {user}=ctx.state
-        const entity= await strapi.services.companies.findOne({id,user:user.id})
-        return sanitizeEntity(entity,{model:strapi.models.companies})
+        const entity= await strapi.services.activeadons.findOne({id,user:user.id})
+        return sanitizeEntity(entity,{model:strapi.models.activeadons})
     },
 
     async update(ctx) {
         const { id } = ctx.params;
         const {user}=ctx.state
-     
+        let entity;
         if (ctx.is('multipart')) {
           const { data, files } = parseMultipartData(ctx);
-          console.log("sadhfhdsadf",data.activeplans[0])
-          entity = await strapi.services.companies.update({ id }, {...data,user:user.id}, {
+          entity = await strapi.services.activeadons.update({ id }, {...data,user:user.id}, {
             files,
           });
         } else {
-            console.log("sadhfhdsadf",ctx.request.body)
-          entity = await strapi.services.companies.update({ id }, {...ctx.request.body,user:user.id});
+          entity = await strapi.services.activeadons.update({ id }, {...ctx.request.body,user:user.id});
         }
     
-        return sanitizeEntity(entity, { model: strapi.models.companies });
+        return sanitizeEntity(entity, { model: strapi.models.activeadons });
       } ,
   
       async create(ctx) {
         const {user}=ctx.state
         let entity;
+    
         
         if (ctx.is('multipart')) {
           const { data, files } = parseMultipartData(ctx);
           strapi.log.info(data)
-          entity = await strapi.services.companies.create({user: user.id,...data}, { files });
+          entity = await strapi.services.activeadons.create({user: user.id,...data}, { files });
         } else {
-          entity = await strapi.services.companies.create({...ctx.request.body,user: user.id});
+          entity = await strapi.services.activeadons.create({...ctx.request.body,user: user.id});
         }
-        return sanitizeEntity(entity, { model: strapi.models.companies });
+        return sanitizeEntity(entity, { model: strapi.models.activeadons });
       },
   
         

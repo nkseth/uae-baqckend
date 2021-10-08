@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/activeplans",
+      "handler": "activeplans.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/activeplans/count",
+      "handler": "activeplans.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/activeplans/:id",
+      "handler": "activeplans.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/activeplans",
+      "handler": "activeplans.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/activeplans/:id",
+      "handler": "activeplans.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/activeplans/:id",
+      "handler": "activeplans.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
