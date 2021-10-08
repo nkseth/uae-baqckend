@@ -1,7 +1,7 @@
 FROM strapi/strapi:3.6.8-node14-alpine
 ENV NODE_ENV production
 WORKDIR /srv/app
-COPY package*.json .
+COPY package*.json ./
 RUN yarn install
 
 COPY . ./
