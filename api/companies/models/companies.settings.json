@@ -13,22 +13,28 @@
   "pluginOptions": {},
   "attributes": {
     "CompanyName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "domainName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "CompanyEmail": {
-      "type": "email"
+      "type": "email",
+      "required": true
     },
     "setupDate": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "status": {
-      "type": "boolean"
+      "type": "boolean",
+      "required": true
     },
     "companyURL": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "user": {
       "via": "companies",

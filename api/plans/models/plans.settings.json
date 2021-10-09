@@ -25,17 +25,22 @@
       "pluginOptions": {}
     },
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "buttontype": {
-      "type": "string"
+      "type": "string",
+      "default": "SUBSCRIBE"
     },
     "currency": {
       "type": "string",
-      "default": "ADE"
+      "default": "AED",
+      "required": true
     },
     "price": {
-      "type": "decimal"
+      "type": "decimal",
+      "default": 0,
+      "required": true
     },
     "category": {
       "type": "enumeration",
@@ -44,16 +49,20 @@
         "addons",
         "other0addons",
         "ggei"
-      ]
+      ],
+      "required": true,
+      "default": "subscription0plans"
     },
     "filteroption": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "information": {
       "type": "text"
     },
     "priority": {
-      "type": "integer"
+      "type": "integer",
+      "required": true
     },
     "tenure": {
       "type": "enumeration",
