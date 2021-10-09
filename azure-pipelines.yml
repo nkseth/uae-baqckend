@@ -10,10 +10,10 @@ resources:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: '55bb8f73-bec0-4bc9-b21e-ad55e512f398'
-  imageRepository: 'simpleaccountsiostrapibackendlatest'
+  dockerRegistryServiceConnection: '69ecfa9f-4543-4a42-8d34-4055d7ccff66'
+  imageRepository: 'simpleaccountsiostrapibackend'
   containerRegistry: 'datainn.azurecr.io'
-  dockerfilePath: '**/Dockerfile'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
