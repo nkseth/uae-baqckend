@@ -11,7 +11,7 @@ resources:
 variables:
   # Container registry service connection established during pipeline creation
   dockerRegistryServiceConnection: '69ecfa9f-4543-4a42-8d34-4055d7ccff66'
-  imageRepository: 'simpleaccountsiostrapibackend'
+  imageRepository: 'simpleaccounts-io-strapi-backend'
   containerRegistry: 'datainn.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
