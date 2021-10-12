@@ -4,7 +4,7 @@ const { sanitizeEntity } = require('strapi-utils');
 
 /**
  * Given a dollar amount number, convert it to it's value in cents
- * @param number 
+ * @param number
  */
 const fromDecimalToInt = (number) => parseInt(number * 100)
 
@@ -17,7 +17,7 @@ const fromDecimalToInt = (number) => parseInt(number * 100)
 module.exports = {
     /**
      * Only send back orders from you
-     * @param {*} ctx 
+     * @param {*} ctx
      */
     async find(ctx) {
         const { user } = ctx.state
@@ -41,7 +41,17 @@ module.exports = {
     async update(ctx) {
         const { id } = ctx.params;
         const {user}=ctx.state
-     
+        let entity
+        let check=0
+          const checkingcompany= await strapi.query("companies").findOne({id:id})
+          .then((res)=>{
+              if(res.user.id!==user.id){
+                check=1
+              }
+          })
+
+          if(check===1) ctx.throw(400,"you are not authorised to do this update")
+
         if (ctx.is('multipart')) {
           const { data, files } = parseMultipartData(ctx);
           console.log("sadhfhdsadf",data.activeplans[0])
@@ -50,16 +60,19 @@ module.exports = {
           });
         } else {
             console.log("sadhfhdsadf",ctx.request.body)
-          entity = await strapi.services.companies.update({ id }, {...ctx.request.body,user:user.id});
+
+          entity = await strapi.services.companies.update({ id }, {...ctx.request.body,user:user.id}).catch((err)=>{
+
+          });
         }
-    
+
         return sanitizeEntity(entity, { model: strapi.models.companies });
       } ,
-  
+
       async create(ctx) {
         const {user}=ctx.state
         let entity;
-        
+
         if (ctx.is('multipart')) {
           const { data, files } = parseMultipartData(ctx);
           strapi.log.info(data)
@@ -69,7 +82,7 @@ module.exports = {
         }
         return sanitizeEntity(entity, { model: strapi.models.companies });
       },
-  
-        
-                
+
+
+
 };

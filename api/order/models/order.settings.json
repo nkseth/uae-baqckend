@@ -28,7 +28,7 @@
       "type": "boolean",
       "default": true
     },
-    "users_permissions_user": {
+    "user": {
       "plugin": "users-permissions",
       "model": "user"
     }

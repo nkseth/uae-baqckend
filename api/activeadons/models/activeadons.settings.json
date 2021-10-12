@@ -20,14 +20,17 @@
       "model": "user"
     },
     "startdate": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "enddate": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "status": {
       "type": "boolean",
-      "default": true
+      "default": true,
+      "required": true
     },
     "company": {
       "model": "companies"
