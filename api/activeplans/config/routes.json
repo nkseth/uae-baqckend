@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/activeplanscompany/:id",
+      "handler": "activeplans.findcompany",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/activeplans",
       "handler": "activeplans.find",
       "config": {

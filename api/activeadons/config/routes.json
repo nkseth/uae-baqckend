@@ -2,6 +2,14 @@
   "routes": [
     {
       "method": "GET",
+      "path": "/activeadonscompany/:id",
+      "handler": "activeadons.findcompany",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
       "path": "/activeadons",
       "handler": "activeadons.find",
       "config": {

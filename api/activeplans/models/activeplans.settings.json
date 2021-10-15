@@ -17,21 +17,24 @@
       "model": "user"
     },
     "company": {
-      "model": "companies",
-      "via": "activeplan"
+      "via": "activeplan",
+      "model": "companies"
     },
     "plan": {
       "model": "plans"
     },
     "startdate": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "enddate": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "status": {
       "type": "boolean",
-      "default": true
+      "default": true,
+      "required": true
     }
   }
 }

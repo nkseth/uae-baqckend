@@ -4,7 +4,7 @@ const { sanitizeEntity } = require('strapi-utils');
 
 /**
  * Given a dollar amount number, convert it to it's value in cents
- * @param number 
+ * @param number
  */
 const fromDecimalToInt = (number) => parseInt(number * 100)
 
@@ -17,15 +17,12 @@ const fromDecimalToInt = (number) => parseInt(number * 100)
 module.exports = {
     /**
      * Only send back orders from you
-     * @param {*} ctx 
+     * @param {*} ctx
      */
     async find(ctx) {
-        
+
         const { user } = ctx.state
         let entities;
-        const companyentity= await strapi.services.companies.find({user:user.id})
-
-        console.log(newentity)
         if (ctx.query._q) {
             entities = await strapi.services.activeplans.search({...ctx.query, user: user.id});
         } else {
@@ -37,7 +34,7 @@ module.exports = {
 
     async findOne(ctx) {
         const {id}=ctx.params
-       
+
         const {user}=ctx.state
         const entity= await strapi.services.activeplans.findOne({id,user:user.id})
         return sanitizeEntity(entity,{model:strapi.models.activeplans})
@@ -55,15 +52,15 @@ module.exports = {
         } else {
           entity = await strapi.services.activeplans.update({ id }, {...ctx.request.body,user:user.id});
         }
-    
+
         return sanitizeEntity(entity, { model: strapi.models.activeplans });
       } ,
-  
+
       async create(ctx) {
         const {user}=ctx.state
         let entity;
-    
-        
+
+
         if (ctx.is('multipart')) {
           const { data, files } = parseMultipartData(ctx);
           strapi.log.info(data)
@@ -73,7 +70,14 @@ module.exports = {
         }
         return sanitizeEntity(entity, { model: strapi.models.activeplans });
       },
-  
-        
-                
+
+      async findcompany(ctx) {
+        const {id}=ctx.params
+
+        const {user}=ctx.state
+
+        const entity= await strapi.services.activeplans.find({company:id,user:user.id})
+        return sanitizeEntity(entity,{model:strapi.models.activeplans});
+    },
+
 };
