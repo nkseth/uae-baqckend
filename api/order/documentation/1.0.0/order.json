@@ -586,6 +586,9 @@
               "headercolor": {
                 "type": "string"
               },
+              "features": {
+                "type": "object"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -661,6 +664,9 @@
                 },
                 "headercolor": {
                   "type": "string"
+                },
+                "features": {
+                  "type": "object"
                 },
                 "published_at": {
                   "type": "string"

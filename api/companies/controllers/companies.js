@@ -75,7 +75,7 @@ module.exports = {
 
         if (ctx.is('multipart')) {
           const { data, files } = parseMultipartData(ctx);
-          strapi.log.info(data)
+
           entity = await strapi.services.companies.create({user: user.id,...data}, { files });
         } else {
           entity = await strapi.services.companies.create({...ctx.request.body,user: user.id});

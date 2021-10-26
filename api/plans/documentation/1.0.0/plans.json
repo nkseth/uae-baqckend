@@ -648,6 +648,9 @@
             "type": "string",
             "default": "#d4afff"
           },
+          "features": {
+            "type": "object"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -716,6 +719,9 @@
           "headercolor": {
             "type": "string",
             "default": "#d4afff"
+          },
+          "features": {
+            "type": "object"
           },
           "published_at": {
             "type": "string",

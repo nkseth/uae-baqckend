@@ -80,6 +80,9 @@
     "headercolor": {
       "type": "string",
       "default": "#d1d7ff"
+    },
+    "features": {
+      "type": "json"
     }
   }
 }

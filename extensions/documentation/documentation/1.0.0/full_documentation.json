@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "10/16/2021 2:27:51 PM"
+    "x-generation-date": "10/26/2021 7:15:22 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -7702,6 +7702,9 @@
               "headercolor": {
                 "type": "string"
               },
+              "features": {
+                "type": "object"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -8070,6 +8073,9 @@
               "headercolor": {
                 "type": "string"
               },
+              "features": {
+                "type": "object"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -8271,6 +8277,9 @@
             "type": "string",
             "default": "#d1d7ff"
           },
+          "features": {
+            "type": "object"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -8337,6 +8346,9 @@
           "headercolor": {
             "type": "string",
             "default": "#d1d7ff"
+          },
+          "features": {
+            "type": "object"
           },
           "published_at": {
             "type": "string",
@@ -8725,6 +8737,9 @@
               "headercolor": {
                 "type": "string"
               },
+              "features": {
+                "type": "object"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -8800,6 +8815,9 @@
                 },
                 "headercolor": {
                   "type": "string"
+                },
+                "features": {
+                  "type": "object"
                 },
                 "published_at": {
                   "type": "string"
@@ -9108,6 +9126,9 @@
             "type": "string",
             "default": "#d4afff"
           },
+          "features": {
+            "type": "object"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -9176,6 +9197,9 @@
           "headercolor": {
             "type": "string",
             "default": "#d4afff"
+          },
+          "features": {
+            "type": "object"
           },
           "published_at": {
             "type": "string",
@@ -9380,6 +9404,9 @@
                 "headercolor": {
                   "type": "string"
                 },
+                "features": {
+                  "type": "object"
+                },
                 "published_at": {
                   "type": "string"
                 },
@@ -9456,6 +9483,9 @@
                 },
                 "headercolor": {
                   "type": "string"
+                },
+                "features": {
+                  "type": "object"
                 },
                 "published_at": {
                   "type": "string"

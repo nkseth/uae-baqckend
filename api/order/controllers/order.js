@@ -360,6 +360,7 @@ const  finaldata={
         entity = await strapi.services.order.create({...placeorder,user:user.id})
 
         .then().catch((err)=>{error=1 ;ctx.throw(400,`Order cannot be created ${err.message}`)})
+
         return sanitizeEntity(entity, { model: strapi.models.order })
 
       },
