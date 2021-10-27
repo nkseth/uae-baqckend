@@ -12,7 +12,7 @@ module.exports = {
 
     const  data  = ctx.request.body;
     console.log(data)
-    const secret="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+    const secret="6LeI4_ccAAAAABJ9FHEGCUf7XfWuQu4m2Tkx_Ahk"
 
     const humanvarification=async()=>{
         const verify= await axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${data.token}`)
