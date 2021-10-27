@@ -12,10 +12,10 @@ module.exports = {
 
     const  data  = ctx.request.body;
     console.log(data)
-    const secret="6LeI4_ccAAAAABJ9FHEGCUf7XfWuQu4m2Tkx_Ahk"
+    const secret=""
 
     const humanvarification=async()=>{
-        const verify= await axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${data.token}`)
+        const verify= await axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=6LeA9fkcAAAAAJ2h0WJC2AsKzYfN3QD9B375bmXd&response=${data.token}`)
         .then(async(res)=>{
 
           console.log(res)
@@ -34,7 +34,7 @@ console.log(hv)
      return await strapi.services.prospects.find({email:data.email}).then(async(res)=>{
     console.log(res)
       if(res.length>0){
-         ctx.throw(400,"you are already registered")
+         ctx.throw(400,"You are already registered in waitlist")
        }
        else{
          console.log("ejnaeklsdfm")
