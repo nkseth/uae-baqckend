@@ -97,5 +97,5 @@ helm upgrade --install $subdomain-backend strapi-websites/$helmDir --values stra
 -n $nameserver \
 --wait
 
-echo "Deployment done successfully"
+echo "Deployment done successfully."
 
