@@ -1,0 +1,98 @@
+# Default values for simpleaccounts-io-strapi-backend.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+nameSpaces: simpleaccounts-io-strapi-website
+image:
+  repository:
+    backend:
+      imageName: datainn.azurecr.io/simpleaccounts-io-strapi-backend
+      tag: "latest"
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+
+azureACRServicePrinciple:
+  enabled: false
+
+simpleAccountsBackendRelease: "latest"
+imagePullSecrets:
+  - name: az-acr-service-principal-credentials
+nameOverride: ""
+fullnameOverride: "simpleaccounts-io-strapi-backend"
+
+persistentVolumePath: /datainnk8sfileshare/prod/websites/simpleaccounts-io-marketplace-website
+accessMode: ReadWriteMany
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+securityContext:
+#   capabilities:
+#     drop:
+#     - ALL
+  # readOnlyRootFilesystem: true
+
+service:
+  type: NodePort
+  port: 443
+  targetPort: 1337
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/clusterissuer: simpleaccounts-letsencrypt-prod
+    #    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/use-regex: "true"
+  hosts:
+    - host: strapi-api.simpleaccounts.io
+      paths: [/*]
+  tls:
+    - secretName: simpleaccounts-io-strapi-backend-tls
+      hosts:
+        - strapi-api.simpleaccounts.io
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources:
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+   limits:
+     cpu: 4
+     memory: 8Gi
+   requests:
+     cpu: 2
+     memory: 4Gi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+data:
+  databaseClient: bW9uZ28=
+  databaseName:
+  databaseHost: ZGF0YWlubi1wcm9kLWNsdXN0ZXItcHJpLmk0OGhvLm1vbmdvZGIubmV0
+  databasePort: MjcwMTc=
+  databaseUsername:
+  databasePassword:

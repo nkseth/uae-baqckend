@@ -1,0 +1,100 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "simpleaccounts-io-strapi-backend.fullname" . }}
+  namespace: {{ .Values.nameSpaces }}
+  labels:
+    {{- include "simpleaccounts-io-strapi-backend.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "simpleaccounts-io-strapi-backend.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "simpleaccounts-io-strapi-backend.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "simpleaccounts-io-strapi-backend.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository.backend.imageName }}:{{ .Values.image.repository.backend.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.targetPort }}
+              protocol: TCP
+#          livenessProbe:
+#            httpGet:
+#              path: /healthz/
+#              port: 80
+#          readinessProbe:
+#            httpGet:
+#              path: /healthz/
+#              port: 80
+          env:
+            - name: DATABASE_CLIENT
+              valueFrom:
+                secretKeyRef:
+                  key: databaseClient
+                  name: {{ include "simpleaccounts-io-strapi-backend.fullname" . }}-db-credentials
+            - name: DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  key: databaseName
+                  name: {{ include "simpleaccounts-io-strapi-backend.fullname" . }}-db-credentials
+            - name: DATABASE_HOST
+              valueFrom:
+                secretKeyRef:
+                  key: databaseHost
+                  name: {{ include "simpleaccounts-io-strapi-backend.fullname" . }}-db-credentials
+            - name: DATABASE_PORT
+              valueFrom:
+                secretKeyRef:
+                  key: databasePort
+                  name: {{ include "simpleaccounts-io-strapi-backend.fullname" . }}-db-credentials
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  key: databaseUsername
+                  name: {{ include "simpleaccounts-io-strapi-backend.fullname" . }}-db-credentials
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  key: databasePassword
+                  name: {{ include "simpleaccounts-io-strapi-backend.fullname" . }}-db-credentials
+#          volumeMounts:
+#            - name: strapi-persistent-storage
+#              mountPath: /srv/app
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+#      volumes:
+#        - name: strapi-persistent-storage
+#          persistentVolumeClaim:
+#            claimName: {{ .Values.nameSpaces }}-rw-k8s-pvc
