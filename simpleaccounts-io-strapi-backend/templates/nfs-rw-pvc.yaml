@@ -15,4 +15,4 @@ spec:
     requests:
       storage: 1Gi
   volumeMode: Filesystem
-  volumeName: {{ .Values.nameSpaces }}-rw-k8s-pv
+  volumeName: {{ include "simpleaccounts-io-strapi-backend.fullname" . }}-rw-k8s-pv
