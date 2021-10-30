@@ -38,7 +38,20 @@ console.log(hv)
        }
        else{
          console.log("ejnaeklsdfm")
-      const entity= await strapi.services.prospects.create({...ctx.request.body}).then().catch((e)=>{ctx.throw(400,e.message)});
+      const entity= await strapi.services.prospects
+      .create({...ctx.request.body}).then(async()=>{
+        const count= await strapi.services.prospects.count()
+          const emailOptions = {
+          to: data.email,
+          subject: 'Bravo You made it, congratulations!',
+          html: `<h1>Welcome!</h1>
+          <p>You are ${count} in the waitlist to explore the future of accounting.</p>`,
+        }
+        return await strapi.plugins['email'].services.email.send(emailOptions).then(()=>{return {message: 'email send'} })
+        .catch((e)=>{ctx.throw(400,e.message)})
+
+
+      }).catch((e)=>{ctx.throw(400,e.message)});
      return sanitizeEntity(entity, { model: strapi.models.prospects})
     }
 
