@@ -98,4 +98,4 @@ spec:
       volumes:
         - name: strapi-persistent-storage
           persistentVolumeClaim:
-            claimName: {{ .Values.nameSpaces }}-rw-k8s-pvc
+            claimName: {{ include "simpleaccounts-io-strapi-backend.fullname" . }}-rw-k8s-pvc
