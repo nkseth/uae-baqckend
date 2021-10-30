@@ -15,7 +15,7 @@ spec:
   claimRef:
     apiVersion: v1
     kind: PersistentVolumeClaim
-    name: {{ .Values.nameSpaces }}-rw-k8s-pvc
+    name: {{ include "simpleaccounts-io-strapi-backend.fullname" . }}-rw-k8s-pvc
     namespace: {{ .Values.nameSpaces }}
   csi:
     driver: file.csi.azure.com
