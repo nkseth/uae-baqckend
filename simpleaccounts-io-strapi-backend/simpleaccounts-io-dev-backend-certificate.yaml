@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: simpleaccounts-io-strapi-dev-backend-tls
+  namespace: simpleaccounts-io-strapi-website
+spec:
+  secretName: simpleaccounts-io-strapi-dev-backend-tls
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  issuerRef:
+    # The issuer created previously
+    name: simpleaccounts-io-letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: 'strapi-api-dev.simpleaccounts.io'
+  dnsNames:
+    - 'strapi-api-dev.simpleaccounts.io'
