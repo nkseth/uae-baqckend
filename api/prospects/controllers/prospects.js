@@ -9,7 +9,7 @@ const axios = require('axios');
 module.exports = {
 
   async create(ctx) {
-    console.log(fung)
+
     const  data  = ctx.request.body;
     console.log(data)
     const secret=""
