@@ -144,13 +144,20 @@ console.log(hv)
                 <td align="center" valign="top">
                   <!-- Main -->
                   <table width="650" border="0" cellspacing="0" cellpadding="0" class="mobile-shell">
+                  <tr>
+                            <td class="p30-15" style="padding: 40px 0px 20px 0px;text-align:center">
+                            <image  height="60%" src="https://www.simpleaccounts.io/wp-content/uploads/2021/10/logo2.png" />
+
+                            </td>
+                          </tr>
+
                     <tr>
                       <td class="td" style="width:650px; min-width:650px; font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal;">
                         <!-- Header -->
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                           <tr>
                             <td class="p30-15" style="padding: 40px 0px 20px 0px;">
-                            <span style="font-size: 1.5rem;font-weight: bold;">Dear ${username},</span>
+                            <span style="font-size: 1.5rem;font-weight: bold;">Dear ${data.firstname} ${data.lastname},</span>
 
                             </td>
                           </tr>
@@ -163,12 +170,12 @@ console.log(hv)
 
                           <tr>
                             <td class="p30-15-0" style="padding: 50px 30px 0px;" bgcolor="#fff">
-                              <span style="font-size: 24px;color: #c8facd;font-weight: bold;">Bravo</span>
+                              <span style="font-size: 1.5rem;color: #000;font-weight: bold;">Bravo</span>
                             </td>
                           </tr>
                           <tr>
                             <td class="p30-15-0" style="padding: 30px 30px 0px;" bgcolor="#fff">
-                              <p  style="font-size: 15px;">You made it, congratulations!</p>
+                              <p  style="font-size: 15px;color: gray;">You made it, congratulations!</p>
                             </td>
                           </tr>
                           <tr>
@@ -210,7 +217,7 @@ console.log(hv)
                                                     <th class="column-top"style="font-size:0pt; line-height:0pt; padding:0; margin:0; font-weight:normal; vertical-align:top;">
                                                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                         <tr>
-                                                          <td class="h5-black black"style="font-family:'Public Sans',sans-serif; font-size:20px; line-height:28px; text-align:left; text-transform:uppercase; font-weight:bold; color:#000000;"><multiline>You are <span style="text-decoration: underline darkorange;">${count}th</span> in the waitlist to explore the future of accounting.</multiline></td>
+                                                          <td class="h5-black black"style="font-family:'Public Sans',sans-serif; font-size:20px; line-height:28px; text-align:left;  font-weight:bold; color:#000000;"><multiline>You are <span style="text-decoration: underline darkorange;color:darkorange;">${count}th</span> in the waitlist to explore the future of accounting.</multiline></td>
                                                         </tr>
 
                                                       </table>
@@ -224,8 +231,9 @@ console.log(hv)
                                                           <td align="right">
                                                             <table class="m-left" border="0" cellspacing="0" cellpadding="0">
                                                               <tr>
-                                                                <td class="text-button button-blue" style=" font-size:14px; line-height:18px; text-align:center; padding:10px 30px; border-radius:20px; background:transparent;">
-                                                                <multiline><image width="150px" height="120px" src="https://www.simpleaccounts.io/wp-content/uploads/2021/03/Features-images-track-expenses.png" ></image></multiline></td>
+                                                                <td class="text-button button-blue" style=" font-size:14px; line-height:18px; text-align:center; padding:0px 30px; border-radius:20px; background:transparent;">
+                                                                <multiline>
+                                                                <img width="150px" height="120px" src="https://www.simpleaccounts.io/wp-content/uploads/2021/03/Features-images-track-expenses.png" ></img></multiline></td>
                                                               </tr>
                                                             </table>
                                                           </td>
@@ -236,11 +244,16 @@ console.log(hv)
                                                 </table>
                                               </td>
                                             </tr>
+
                                           </table>
                                         </td>
                                       </tr>
 
-
+                                      <tr>
+                            <td  style="margin: 24px 0px 0px;    line-height: 1.57143;    font-size: 0.875rem;    font-family:'Public Sans', sans-serif; font-weight: 400;    text-align: center;    color: rgb(99, 115, 129);">
+                            <a style="color:#3564d8" href="https://www.simpleaccounts.io/schedule-your-demo/"><multiline>Click here to book a quick demo with us.</multiline></a>
+                            </td>
+                          </tr>
                                     </table>
                                   </td>
                                 </tr>
@@ -248,15 +261,16 @@ console.log(hv)
                             </td>
                           </tr>
                           <tr>
-                            <td class="fluid-img"style="font-size:20px; text-align:center;height: 50px;">
+                            <td class="fluid-img"style="font-size:20px; text-align:center;height: 20px;">
 
                             </td>
                           </tr>
                           <tr>
-                            <td class="fluid-img"style="text-align:center;color:rgb(99, 115, 129);font-weight:400;font-size: 0.875rem;">
+                            <td  style="margin: 24px 0px 0px;    line-height: 1.57143;    font-size: 0.875rem;    font-family:'Public Sans', sans-serif; font-weight: 400;    text-align: center;    color: rgb(99, 115, 129);">
                             <multiline>Check your inbox for the SimpleAccounts invite in a short time.</multiline>
                             </td>
                           </tr>
+
                         </table>
                         <!-- END Section 2 -->
                       </td>
@@ -285,6 +299,7 @@ console.log(hv)
             </table>
           </body>
           </html>
+
           `
         }
         return await strapi.plugins['email'].services.email.send(emailOptions).then(()=>{return {message: 'email send'} })
